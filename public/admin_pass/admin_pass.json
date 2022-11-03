@@ -1,0 +1,14 @@
+[
+  {
+    "login": "vasya",
+    "name": "Вася",
+    "password": "1234",
+    "is_admin": true
+  },
+  {
+    "login": "petya",
+    "name": "Петя",
+    "password": "cococo",
+    "is_admin": false
+  }
+]

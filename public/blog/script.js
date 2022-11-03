@@ -161,10 +161,19 @@ getBlog().page.buttons.delete_last_added.on('click', function () {
 });
 
 function showBlog() {
-  $('body').append('<div></div>')
+
+  window.server_data.map(blog => {
+
+    $('body').append('<div>' +
+        '<h2>' + blog.blog_name + '</h2>' +
+        '<p>' + blog.story + '</p>' +
+        '<p>' + blog.time_post + '</p>' +
+        '</div>')
+  });
+
 }
 
-
+showBlog()
 /*let newBlog = document.createElement('div'),
     h2 = document.createElement('h2'),
     p = document.createElement('p');

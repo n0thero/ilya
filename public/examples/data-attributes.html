@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data-атрибуты</title>
+</head>
+<body>
+
+<button class="somebody" data-any-word="1">Один</button>
+<button class="somebody" data-any-word="100">Сто</button>
+<button class="somebody" data-any-word="abc">Красная (нет)</button>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+<script>
+
+  let buttons = $('.somebody');
+
+  buttons.on('click', event => {
+
+    console.log(event.target);
+
+    let clicked_button = event.target; // Чистый JS-объект
+
+    clicked_button = $(clicked_button); // Теперь он обёрнут в jQuery-обёртку
+
+    // Есть два способа получения data-атрибута. Работают одинаково
+    console.log(clicked_button.attr('data-any-word')); // Только это позволяет получить любой атрибут
+    // console.log(clicked_button.data('anyWord')); // А этот - только data-атрибуты. И здесь отличается запись свойства
+
+    // console.log(clicked_button.attr('disabled')); // Так можно получить какой-нибудь другой атрибут
+  });
+
+</script>
+
+</body>
+</html>

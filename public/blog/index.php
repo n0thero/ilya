@@ -76,32 +76,33 @@ $random = rand(1, 10000);
   Удалить запись
 </button>
 
+
 <? if (empty($posts)): ?>
   <p>
     Блог не заполнен
   </p>
 <? else: ?>
 
-  <table>
-    <thead>
-    <tr>
-      <td>Название</td>
-      <td>История</td>
-      <td>Дата создания</td>
-      <td>hash</td>
-    </tr>
-    </thead>
-    <tbody>
-    <? foreach ($posts as $post): ?>
-      <tr>
-        <td><?= $post['blog_name'] ?></td>
-        <td><?= $post['story'] ?></td>
-        <td><?= $post['time_post'] ?></td>
-        <td><?= $post['hash'] ?></td>
-      </tr>
-    <? endforeach; ?>
-    </tbody>
-  </table>
+<!--  <table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <td>Название</td>-->
+<!--      <td>История</td>-->
+<!--      <td>Дата создания</td>-->
+<!--      <td>hash</td>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    --><?// foreach ($posts as $post): ?>
+<!--      <tr>-->
+<!--        <td>--><?//= $post['blog_name'] ?><!--</td>-->
+<!--        <td>--><?//= $post['story'] ?><!--</td>-->
+<!--        <td>--><?//= $post['time_post'] ?><!--</td>-->
+<!--        <td>--><?//= $post['hash'] ?><!--</td>-->
+<!--      </tr>-->
+<!--    --><?// endforeach; ?>
+<!--    </tbody>-->
+<!--  </table>-->
 
 <? endif; ?>
 
