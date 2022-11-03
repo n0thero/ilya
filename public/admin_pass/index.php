@@ -5,8 +5,6 @@ ini_set('error_reporting', E_ALL);
 include __DIR__ . "/common_functions.php";
 include __DIR__ . "/get_user_by_keycard.php";
 
-
-
 if (!empty($_COOKIE['unique_key'])) {
   $current_user = get_user_by_keycard($_COOKIE['unique_key']);
 } else {
@@ -48,6 +46,10 @@ if (!empty($_COOKIE['unique_key'])) {
 
 <? if (!empty($_COOKIE['unique_key'])): ?>
   <h1>Привет пользователь!</h1>
+  <button onclick="location.href = '/form_hacker/orders/index.php'">
+    Перейти к заявкам
+  </button>
+  <br>
   <a href="logout.php">Выйти</a>
 <? else: ?>
   <h1>Привет гость!</h1>

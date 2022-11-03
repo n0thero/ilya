@@ -41,7 +41,10 @@ getAdminPass().page.form.on('submit', function (event) {
       if (data.status === 'success') {
         alert(data.message);
         location.reload();
+      } else if (data.status === 'failed') {
+        alert(data.message);
       }
+
     });
 
 });

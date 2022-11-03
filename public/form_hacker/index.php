@@ -81,6 +81,16 @@ $random = rand(1, 10000);
   <button>Отправить</button>
 
 </form>
+<br>
+<br>
+<br>
+
+<button id="button_to_form" onclick="if (confirm('Для перехода на следующую страницу потребуется авторизация. Точно перейти?')) {
+  location.href = '/admin_pass/index.php';
+}">
+  Перейти в заявки
+</button>
+
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <script src="database.js"></script>
