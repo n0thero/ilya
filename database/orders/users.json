@@ -1,0 +1,26 @@
+[
+    {
+        "login": "vasya",
+        "name": "Вася",
+        "password": "123",
+        "is_admin": true
+    },
+    {
+        "login": "petya",
+        "name": "Петя",
+        "password": "cococo",
+        "is_admin": false
+    },
+    {
+        "name": "ilya",
+        "login": "pioner",
+        "password": "qqq",
+        "is_admin": false
+    },
+    {
+        "name": "1",
+        "login": "2",
+        "password": "3",
+        "is_admin": false
+    }
+]

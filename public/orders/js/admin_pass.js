@@ -29,7 +29,7 @@ getAdminPass().page.form.on('submit', function (event) {
   event.preventDefault();
 
   $.ajax({
-    url: 'logged.php',
+    url: '/orders/handlers/logged.php',
     method: 'post',
     data: {
       login: $('#login').val(),

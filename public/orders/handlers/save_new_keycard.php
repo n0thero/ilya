@@ -5,7 +5,7 @@
 function saveNewKeyCard($login, $key_card)
 {
 
-    $file_name = __DIR__ . '/keycards.json';
+    $file_name = __DIR__ . '/../../../database/orders/keycards.json';
 
     $file_data = rtrim(file_get_contents($file_name));
 
@@ -30,7 +30,7 @@ function saveNewKeyCard($login, $key_card)
 
 function deleteAllKeyCards()
 {
-    $file_name = __DIR__ . '/keycards.json';
+    $file_name = __DIR__ . '/../../../database/orders/keycards.json';
 
     $file = fopen($file_name, 'w');
     fwrite($file, json_encode([]));

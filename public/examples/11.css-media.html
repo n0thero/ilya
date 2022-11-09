@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>11. CSS Media</title>
+</head>
+<body>
+
+<div class="container">
+  <h1>Привет, мир!</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quas repudiandae! Adipisci aliquam amet asperiores, dicta earum, illo ipsa omnis quae quaerat quam quidem rem saepe, unde! Ad, odio quas.
+  </p>
+</div>
+
+<style>
+
+  .container {
+      width: 960px;
+      padding: 0; /* отступы внутри объекта */
+      color: black;
+      margin: 0 auto; /* поместит его по центру экрана */
+  }
+
+  .container {
+      color: green;
+  }
+
+  /* @media (min-width: 700) and (max-width: 1000px) { */
+
+  @media (max-width: 1000px) {
+
+      .container {
+          width: 100%;
+          padding: 0 20px;
+          color: blue;
+          box-sizing: border-box; /* это правило говорит, что нужно включать padding в ту ширину, которую мы указываем */
+      }
+  }
+
+</style>
+
+</body>
+</html>

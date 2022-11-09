@@ -1,9 +1,9 @@
 <?
-include __DIR__ . "/../common_functions.php";
+include __DIR__ . "/handlers/common_functions.php";
 
-$file_name = __DIR__ . "/../app_data.json";
+$file_name = __DIR__ . "/../../database/orders/orders.json";
 
-$file_data = rtrim(file_get_contents(getDataFileName()));
+$file_data = rtrim(file_get_contents($file_name));
 
 if (empty($file_data)) {
   $file_data = '[]';
@@ -84,7 +84,7 @@ $random = rand(1, 10000);
 <? endif; ?>
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="../database.js"></script>
-<script src="orders.js"></script>
+<script src="js/database.js"></script>
+<script src="js/orders.js"></script>
 </body>
 </html>

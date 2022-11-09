@@ -7,4 +7,4 @@ setcookie(
   '/'
 );
 
-header('Location: /admin_pass/?logged_out=1');
+header('Location: /orders/admin_pass.php?logged_out=1');

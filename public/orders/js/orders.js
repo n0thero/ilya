@@ -28,7 +28,7 @@ window.order = {
 
     $.ajax({
       method: 'post',
-      url: '/form_hacker/data_saver.php',
+      url: '/orders/handlers/data_saver.php',
       data: {
         data_to_save: JSON.stringify(filtered_data)
       }

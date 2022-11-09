@@ -1,9 +1,9 @@
 <?
-include __DIR__ . "/common_functions.php";
+include __DIR__ . "/handlers/common_functions.php";
 
-$file_name = __DIR__ . "/app_data.json";
+$file_name = __DIR__ . "/../../database/orders/orders.json";
 
-$file_data = rtrim(file_get_contents(getDataFileName()));
+$file_data = rtrim(file_get_contents($file_name));
 
 if (empty($file_data)) {
   $file_data = '[]';
@@ -47,9 +47,6 @@ $random = rand(1, 10000);
   </style>
 </head>
 <body>
-<script>
-  window.server_data = JSON.parse('<?= $file_data ?>');
-</script>
 
 <h1>
   Я начинающий программист
@@ -86,14 +83,13 @@ $random = rand(1, 10000);
 <br>
 
 <button id="button_to_form" onclick="if (confirm('Для перехода на следующую страницу потребуется авторизация. Точно перейти?')) {
-  location.href = '/admin_pass/index.php';
+  location.href = 'admin_pass.php';
 }">
   Перейти в заявки
 </button>
 
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="database.js"></script>
-<script src="form.js"></script>
+<script src="js/create_order.js"></script>
 </body>
 </html>

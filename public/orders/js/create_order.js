@@ -13,7 +13,7 @@ window.months = [
   'Декабря'
 ]
 
-window.hacker = {
+window.orders = {
 
   page: {
     form: $('#order'),
@@ -30,35 +30,33 @@ window.hacker = {
 
     let new_order = Object.assign({
       hash: String(Math.random())
-          .replace('0.', '')
-          .substring(0, 7),
+        .replace('0.', '')
+        .substring(0, 7),
       time_order: now.getDate()
-          + '.'
-          + months[now.getMonth()]
-          + ' / '
-          + now.getHours()
-          + ':'
-          + now.getMinutes()
+        + '.'
+        + months[now.getMonth()]
+        + ' / '
+        + now.getHours()
+        + ':'
+        + now.getMinutes()
     }, data_from_form);
 
-    let data_to_send = typeof getDataBase().state.server_data.length !== 'undefined'
-        ? getDataBase().state.server_data
-        : [];
-
-    data_to_send.push(new_order);
-
-    getDataBase().sendData(data_to_send)
+    $.ajax({
+        method: 'post',
+        url: '/orders/handlers/data_saver.php',
+        data: new_order
+      });
   },
 
 }
 
-function getHacker() {
-  return window.hacker;
+function getNewOrder() {
+  return window.orders;
 }
 
-getHacker().page.form.on('submit', function (event) {
+getNewOrder().page.form.on('submit', function (event) {
   event.preventDefault();
-  getHacker().submitForm();
+  getNewOrder().submitForm();
   alert('Заявка отправлена');
 });
 
