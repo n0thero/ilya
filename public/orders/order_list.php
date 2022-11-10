@@ -47,9 +47,6 @@ $random = rand(1, 10000);
   </style>
 </head>
 <body>
-<script>
-  window.server_data = JSON.parse('<?= $file_data ?>');
-</script>
 
 <? if (empty($orders)): ?>
 <p>
@@ -84,7 +81,6 @@ $random = rand(1, 10000);
 <? endif; ?>
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="js/database.js"></script>
 <script src="js/orders.js"></script>
 </body>
 </html>

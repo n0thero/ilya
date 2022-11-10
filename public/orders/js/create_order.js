@@ -19,6 +19,8 @@ window.orders = {
     form: $('#order'),
   },
 
+
+
   submitForm: function () {
 
     let data_from_form = {
