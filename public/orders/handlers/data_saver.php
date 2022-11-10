@@ -24,5 +24,7 @@ $result_to_save = array_merge(
   ]);
 
 $file = fopen($file_name, 'w');
-fwrite($file, json_encode($result_to_save), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+fwrite($file, json_encode($result_to_save, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 fclose($file);
+
+echo json_encode(['status' => 'success']);

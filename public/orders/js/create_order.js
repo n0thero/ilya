@@ -28,6 +28,10 @@ window.orders = {
 
     let now = new Date();
 
+    let minutes = now.getMinutes() < 10
+      ? '0' + now.getMinutes()
+      : now.getMinutes();
+
     let new_order = Object.assign({
       hash: String(Math.random())
         .replace('0.', '')
@@ -38,14 +42,19 @@ window.orders = {
         + ' / '
         + now.getHours()
         + ':'
-        + now.getMinutes()
+        + minutes
     }, data_from_form);
 
     $.ajax({
         method: 'post',
         url: '/orders/handlers/data_saver.php',
         data: new_order
-      });
+      })
+      .done(data => {
+        if (data.status === 'success') {
+          alert('Ваша заявка отправлена')
+        }}
+      )
   },
 
 }
@@ -57,7 +66,6 @@ function getNewOrder() {
 getNewOrder().page.form.on('submit', function (event) {
   event.preventDefault();
   getNewOrder().submitForm();
-  alert('Заявка отправлена');
 });
 
 
