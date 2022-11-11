@@ -6,6 +6,8 @@ include_once __DIR__ . "/common_functions.php";
 
 function get_user_by_keycard($key_card)
 {
+  $key_card = intval($key_card);
+
   $keycards_file_name = __DIR__ . "/../../../database/orders/keycards.json";
 
   $keycards_file_data = rtrim(file_get_contents($keycards_file_name));
