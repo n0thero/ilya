@@ -1,4 +1,5 @@
 <?
+include_once __DIR__ . '/common_functions.php';
 
 $users = [
   [
@@ -16,7 +17,7 @@ $users = [
 ];
 
 $first_class_users = array_filter($users, function ($user_to_filter) {
-  return $user_to_filter['class'] === 'второй';
+  return $user_to_filter['class'] === 'первый';
 });
 
 jlog($first_class_users); // результат поиска

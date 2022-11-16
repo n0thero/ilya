@@ -35,7 +35,6 @@ $('#add_form').on('submit', event => {
 
           bindListenersForDeletingButtons();
         }
-
       }
     )
 })
@@ -64,8 +63,6 @@ function bindListenersForDeletingButtons() {
             console.log('Поле удалено')
           }
         })
-
-
     })
 }
 

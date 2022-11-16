@@ -77,6 +77,7 @@ $info_table = !empty($file_data)
   <tr>
     <td>Имя</td>
     <td>Пол</td>
+    <td>Аватар</td>
     <td>Действие</td>
   </tr>
   </thead>
@@ -85,6 +86,15 @@ $info_table = !empty($file_data)
     <tr class="table_list">
       <td><?= $info['name'] ?></td>
       <td><?= $info['sex'] ?></td>
+      <td>
+        <? if (file_exists(__DIR__ . '/../uploads/' . $info['hash'] . '.jpg')): ?>
+          <img src="/uploads/<?= $info['hash'] . '.jpg' ?>"
+               style="width: 50px"
+               alt="Ваш аватар">
+        <? else : ?>
+          --
+        <? endif; ?>
+      </td>
       <td>
         <button class="delete_button"
                 data-hash="<?= $info['hash'] ?>">Удалить
