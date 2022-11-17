@@ -14,7 +14,7 @@ function jlog(...$obj)
   <?
 }
 
-function showlog($data)
+function showLog($data)
 {
   echo '<pre>';
   var_dump($data);

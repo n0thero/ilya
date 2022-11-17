@@ -3,15 +3,7 @@ include_once __DIR__ . "/common_functions.php";
 
 $file_name = __DIR__ . "/../../database/dynamic/name.json";
 
-$file_data = rtrim(file_get_contents($file_name));
-
-if (empty($file_data)) {
-  $file_data = '[]';
-}
-
-$info_table = !empty($file_data)
-  ? json_decode($file_data, true)
-  : [];
+$info_table = getDataFromJson($file_name);
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,8 +50,8 @@ $info_table = !empty($file_data)
   <br>
 
   <input type="text"
-         id="sex"
-         placeholder="Пол"
+         id="special"
+         placeholder="Специальность"
          required>
   <br>
   <br>
@@ -76,7 +68,7 @@ $info_table = !empty($file_data)
   <thead>
   <tr>
     <td>Имя</td>
-    <td>Пол</td>
+    <td>Специальность</td>
     <td>Аватар</td>
     <td>Действие</td>
   </tr>
@@ -85,13 +77,13 @@ $info_table = !empty($file_data)
   <? foreach ($info_table as $info): ?>
     <tr class="table_list">
       <td><?= $info['name'] ?></td>
-      <td><?= $info['sex'] ?></td>
+      <td><?= $info['special'] ?></td>
       <td>
         <? if (file_exists(__DIR__ . '/../uploads/' . $info['hash'] . '.jpg')): ?>
           <img src="/uploads/<?= $info['hash'] . '.jpg' ?>"
                style="width: 50px"
                alt="Ваш аватар">
-        <? else : ?>
+        <? else: ?>
           --
         <? endif; ?>
       </td>

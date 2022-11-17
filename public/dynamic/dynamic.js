@@ -1,10 +1,9 @@
-
 $('#add_form').on('submit', event => {
   event.preventDefault();
 
   let new_data = {
     name: $('#name').val(),
-    sex: $('#sex').val(),
+    special: $('#special').val(),
   };
 
   let ajax_params = {
@@ -23,7 +22,10 @@ $('#add_form').on('submit', event => {
             new_data.name +
             '</td>' +
             '<td>' +
-            new_data.sex +
+            new_data.special +
+            '</td>' +
+            '<td>' +
+            '--' +
             '</td>' +
             '<td>' +
             '<button class="delete_button" data-hash="' + response.hash + '">' +
@@ -37,6 +39,25 @@ $('#add_form').on('submit', event => {
         }
       }
     )
+})
+
+$('[name="speciality"]').on('change', event => {
+
+  let clicked_select = $(event.target);
+
+  $.ajax({
+    method: 'get',
+    url: '/dynamic/get_users_by_speciality.php',
+    data: {
+      special: clicked_select.val()
+    }
+  })
+    .done(response => {
+      if (response.status === 'success') {
+        console.log(response.result)
+      }
+    })
+
 })
 
 function bindListenersForDeletingButtons() {

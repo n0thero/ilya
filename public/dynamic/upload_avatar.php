@@ -3,20 +3,15 @@ include_once __DIR__ . "/common_functions.php";
 
 $file_name = __DIR__ . "/../../database/dynamic/name.json";
 
-$file_data = rtrim(file_get_contents($file_name));
-
-if (empty($file_data)) {
-  $file_data = '[]';
-}
-
-$user_avatars = !empty($file_data)
-  ? json_decode($file_data, true)
-  : [];
-
+$user_avatars = getDataFromJson($file_name);
 
 $message_styles = empty($users)
   ? 'style="display: none"'
   : '';
+
+$specialities = array_unique(array_column($user_avatars, 'special'));
+
+jlog($specialities);
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,24 +45,39 @@ $message_styles = empty($users)
   </style>
 </head>
 <body>
-<h1>Choose your fighter</h1>
+<h1>Подбор нужного вам специалиста</h1>
 
 <p class="no_users" <?= $message_styles ?>>
-  Бойцов нет
+  Специалистов нет
 </p>
-
 
 <form action="avatar_saver.php"
       id="add_avatar"
       enctype="multipart/form-data"
       method="post">
 
-  <label for="user_hash">Выберите пользователя</label>
+  <label for="speciality">Выберите специальность</label>
   <br>
-  <select name="user_hash" id="user_hash">
-    <? foreach ($user_avatars as $avatar): ?>
-      <option value="<?= $avatar['hash'] ?>">
-        <?= $avatar['name'] . ', пол - ' . $avatar['sex'] ?>
+  <select name="speciality"
+          id="speciality"
+          autofocus>
+    <option disabled selected>Не выбрано</option>
+    <? foreach ($specialities as $special): ?>
+      <option value="<?= $special ?>">
+        <?= $special ?>
+      </option>
+    <? endforeach; ?>
+  </select>
+  <br>
+  <br>
+  <label for="name_expert">Выберите исполнителя</label>
+  <br>
+  <select name="name_expert"
+          id="name_expert">
+    <option disabled selected>Не выбрано</option>
+    <? foreach ($user_avatars as $expert): ?>
+      <option value="<?= $expert['hash'] ?>">
+        <?= $expert['name'] ?>
       </option>
     <? endforeach; ?>
   </select>
@@ -85,5 +95,7 @@ $message_styles = empty($users)
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="dynamic.js"></script>
 </body>
 </html>
+

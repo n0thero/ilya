@@ -5,7 +5,7 @@ include_once __DIR__ . '/common_functions.php';
 $a = [1, 2];
 $b = [3];
 
-showlog(array_merge($a, $b));
+showLog(array_merge($a, $b));
 jlog(array_merge($a, $b));
 
 
@@ -19,7 +19,7 @@ $d = [
   'жена' => 'красавица'
 ];
 
-showlog(array_merge($c, $d));
+showLog(array_merge($c, $d));
 jlog(array_merge($c, $d));
 
 $e = [
@@ -34,6 +34,6 @@ $f = [
   ]
 ];
 
-showlog(array_merge($e, $f));
+showLog(array_merge($e, $f));
 jlog(array_merge($e, $f));
 
