@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(50, 50, 50);
+    font-family: 'Cousine', monospace;
+    color: #6ca20e;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    background-color: #3f413f;
+}
+
+header a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+header a:hover {
+    background-color: #666865;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+}
+
+@media screen and (max-width: 350px) {
+    nav {
+        flex-direction: column;
+    }
+}

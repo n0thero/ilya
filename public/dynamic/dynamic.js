@@ -54,11 +54,20 @@ $('[name="speciality"]').on('change', event => {
   })
     .done(response => {
       if (response.status === 'success') {
-        console.log(response.result)
-      }
-    })
 
-})
+        $('[name="unique_user_key"]').html('<option disabled selected>Не выбрано</option>');
+
+        response.result.forEach(user => {
+          let option = '<option value="' + user.hash + '">' + user.name + '</option>';
+          $('[name="unique_user_key"]').append(option);
+        });
+
+        $('.hash-wrap').show();
+
+      }
+    });
+
+});
 
 function bindListenersForDeletingButtons() {
 

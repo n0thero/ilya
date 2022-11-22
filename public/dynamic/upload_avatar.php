@@ -9,9 +9,12 @@ $message_styles = empty($users)
   ? 'style="display: none"'
   : '';
 
+//$expert_styles = empty($special)
+//  ? 'style="display: none"'
+//  : '';
+
 $specialities = array_unique(array_column($user_avatars, 'special'));
 
-jlog($specialities);
 ?>
 <!doctype html>
 <html lang="en">
@@ -70,17 +73,14 @@ jlog($specialities);
   </select>
   <br>
   <br>
-  <label for="name_expert">Выберите исполнителя</label>
-  <br>
-  <select name="name_expert"
-          id="name_expert">
-    <option disabled selected>Не выбрано</option>
-    <? foreach ($user_avatars as $expert): ?>
-      <option value="<?= $expert['hash'] ?>">
-        <?= $expert['name'] ?>
-      </option>
-    <? endforeach; ?>
-  </select>
+  <div class="hash-wrap" style="display: none">
+    <label for="name_expert">Выберите исполнителя</label>
+    <br>
+    <select name="unique_user_key"
+            id="name_expert"
+            required>
+    </select>
+  </div>
   <br>
   <br>
   <label for="avatar">Загрузите аватарку</label>
